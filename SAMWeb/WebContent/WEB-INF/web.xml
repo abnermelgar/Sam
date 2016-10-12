@@ -70,12 +70,10 @@
   <filter-name>SAMFilter</filter-name>
   <filter-class>gt.edu.altamira.jsf.SAMFilter</filter-class>
  </filter>
- 
  <filter-mapping>
-    <filter-name>SAMFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
- 
+  <filter-name>SAMFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+ </filter-mapping>
  <listener>
   <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
  </listener>
