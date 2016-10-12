@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.1"
+ xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+ <display-name>SAMWeb</display-name>
+ <context-param>
+  <param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+  <param-value>.xhtml</param-value>
+ </context-param>
+ <context-param>
+  <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
+  <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+  <param-value>server</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.facelets.REFRESH_PERIOD</param-name>
+  <param-value>2</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+  <param-value>resources.application</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.ajax4jsf.CONTROL_SKINNING</param-name>
+  <param-value>disabled</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.ajax4jsf.CONTROL_SKINNING_CLASSES</param-name>
+  <param-value>disable</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.ajax4jsf.SKIN</param-name>
+  <param-value>plain</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.ajax4jsf.handleViewExpiredOnClient</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.CONTROL_SKINNING</param-name>
+  <param-value>disable</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.CONTROL_SKINNING_CLASSES</param-name>
+  <param-value>disable</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.LoadScriptStrategy</param-name>
+  <param-value>ALL</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.LoadStyleStrategy</param-name>
+  <param-value>NONE</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.SKIN</param-name>
+  <param-value>plain</param-value>
+ </context-param>
+ <context-param>
+  <param-name>org.richfaces.enableControlSkinning</param-name>
+  <param-value>false</param-value>
+ </context-param>
+ <filter>
+  <description>Session Filter</description>
+  <display-name>SAMFilter</display-name>
+  <filter-name>SAMFilter</filter-name>
+  <filter-class>gt.edu.altamira.jsf.SAMFilter</filter-class>
+ </filter>
+ 
+ <filter-mapping>
+    <filter-name>SAMFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+ 
+ <listener>
+  <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+ </listener>
+ <servlet>
+  <servlet-name>Faces Servlet</servlet-name>
+  <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>Faces Servlet</servlet-name>
+  <url-pattern>*.jsf</url-pattern>
+ </servlet-mapping>
+ <session-config>
+  <session-timeout>30</session-timeout>
+ </session-config>
+ <welcome-file-list>
+  <welcome-file>login.jsf</welcome-file>
+ </welcome-file-list>
+</web-app>

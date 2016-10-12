@@ -1,0 +1,93 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+
+	<h:form>
+		<nav class="navbar-default navbar-static-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav metismenu" id="side-menu">
+					<li class="nav-header">
+
+						<div class="dropdown profile-element">
+
+							<span> <img alt="image" class="img-circle"
+								src="#{request.contextPath}/img/profile_small.jpg" />
+							</span> <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<span class="clear"> <span class="block m-t-xs"> <strong
+										class="font-bold">#{menuBean.userName}</strong>
+								</span> <span class="text-muted text-xs block">#{menuBean.userType}
+										<b class="caret"></b>
+								</span>
+							</span>
+							</a>
+							<ul class="dropdown-menu animated fadeInRight m-t-xs">
+								<li><a href="profile.html">Profile</a></li>
+
+								<li class="divider"></li>
+								<li><a4j:commandLink action="#{loginBean.kill}">Cerrar Sesión</a4j:commandLink>
+								</li>
+							</ul>
+
+						</div>
+
+						<div class="logo-element">SAM</div>
+					</li>
+
+					<li class="active"><a4j:commandLink action="index">
+							<i class="fa fa-th-large"></i>
+							<span class="nav-label">Inicio</span>
+						</a4j:commandLink></li>
+
+					<a4j:repeat var="x" value="#{menuBean.options}">
+						<li class=""><h:outputLink
+								value="#{x.optionView ne '#' ? request.contextPath :''}#{x.optionView eq '#' ? '':'/'}#{x.optionView}"
+								rendered="#{x.publicView}">
+								<i class="#{x.styleClass}"></i>
+								<span class="nav-label"><h:outputText
+										value="#{x.optionName}" /> </span>
+								<span class="fa arrow"></span>
+							</h:outputLink> <h:panelGroup rendered="#{!(empty x.options) and x.menu}">
+								<ul class="nav nav-second-level collapse">
+									<a4j:repeat var="y" value="#{x.options}">
+										<li class=""><h:outputLink rendered="#{y.publicView}"
+												value="#{y.optionView ne '#' ? request.contextPath: ''}#{y.optionView eq '#' ? '':'/'}#{y.optionView}">
+
+												<a4j:outputPanel rendered="#{!(empty y.options) and y.menu}"
+													ajaxRendered="true">
+
+													<h:outputText value="#{y.optionName}" />
+													<span class="fa arrow" />
+												</a4j:outputPanel>
+												<h:outputText value="#{y.optionName}" />
+											</h:outputLink> <a4j:outputPanel rendered="#{!(empty y.options) and y.menu}">
+												<ul class="submenu">
+													<a4j:repeat var="w" value="#{y.options}">
+														<li><a href="#{w.optionView}"> #{w.optionName}</a> <i
+															class="menu-icon fa fa-caret-right"></i></li>
+													</a4j:repeat>
+												</ul>
+											</a4j:outputPanel></li>
+									</a4j:repeat>
+								</ul>
+							</h:panelGroup></li>
+
+
+					</a4j:repeat>
+
+
+
+
+				</ul>
+
+			</div>
+		</nav>
+	</h:form>
+
+
+</ui:composition>

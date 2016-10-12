@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<h:panelGroup id="formEdit">
+
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>Role #{roleBean.newEntity ?'Nuevo':'Editando'}</h5>
+				<div class="ibox-tools">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+					</a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-wrench"></i>
+					</a>
+
+				</div>
+			</div>
+			<div class="ibox-content">
+
+
+				<rich:messages />
+				<h:panelGroup styleClass="form-horizontal">
+
+
+
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Nombre</label>
+
+						<div class="col-sm-10">
+							<h:inputText value="#{roleBean.entity.desRole}"
+								styleClass="form-control" />
+
+						</div>
+					</div>
+
+					<h:panelGroup rendered="#{!roleBean.newEntity}">
+
+
+						<h:panelGroup id="rolInfo">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Opciones </label>
+								<div class="col-sm-10">
+
+									<h:selectOneMenu value="#{roleBean.selectedOption}"
+										styleClass="form-control col-md-7 col-xs-12"
+										style="width:100%">
+										<f:selectItems value="#{roleBean.options}" />
+									</h:selectOneMenu>
+
+
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+									<a4j:commandLink styleClass="btn btn-primary"
+										render="rolTable,rolInfo" action="#{roleBean.addOptionrole}"
+										oncomplete="loadDataTable();">
+										<i class="fa fa-plus bigger-110"></i> Agregar
+							</a4j:commandLink>
+								</div>
+							</div>
+							<h:panelGroup id="rolTable">
+
+
+								<h3>Roles Asignados</h3>
+
+								<h:dataTable value="#{roleBean.entity.optionRoles}" var="x"
+									rendered="#{!empty roleBean.entity.optionRoles}" id="dt2"
+									styleClass="table table-striped table-bordered table-hover tableTools"
+									width="100%">
+									<h:column>
+										<f:facet name="header">ID</f:facet>
+										<h:outputText value="#{x.id.idOption}" />
+
+									</h:column>
+									<h:column>
+										<f:facet name="header">Nombre</f:facet>
+										<h:outputText value="#{x.option.optionName}" />
+
+									</h:column>
+									<h:column>
+										<f:facet name="header">Tipo</f:facet>
+										<h:outputText value="#{x.option.menu ? 'Menu':'Opcion'}" />
+
+									</h:column>
+									<h:column>
+										<a4j:commandLink ajaxSingle="true"
+											action="#{roleBean.deleteSelectedOption}"
+											render="rolInfo,rolTable"
+											styleClass="btn btn-danger btn-sm no-radius"
+											oncomplete="loadDataTable();">
+											<i class="fa fa-trash-o bigger-150"></i>
+
+											<f:setPropertyActionListener
+												target="#{roleBean.deleteOption}" value="#{x}" />
+
+										</a4j:commandLink>
+
+									</h:column>
+
+								</h:dataTable>
+							</h:panelGroup>
+						</h:panelGroup>
+					</h:panelGroup>
+
+
+
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-4 col-sm-offset-2">
+
+
+							<a4j:commandButton styleClass="btn btn-white" value="Regresar"
+								execute="formEdit" limitRender="true" immediate="true"
+								bypassUpdates="true" type="button" render="tooglePanel"
+								oncomplete="pageSetUp();callDatableTools();">
+								<a4j:param assignTo="#{roleBean.wizardURL}"
+									value="form:tooglePanelI1" />
+							</a4j:commandButton>
+
+							<label></label>
+							<a4j:commandButton action="#{roleBean.save}"
+								styleClass="btn btn-primary" value="Guardar" execute="formEdit"
+								render="tooglePanel"
+								oncomplete="pageSetUp();callDatableTools();">
+
+							</a4j:commandButton>
+
+
+
+						</div>
+					</div>
+				</h:panelGroup>
+
+
+			</div>
+		</div>
+	</h:panelGroup>
+
+</ui:composition>

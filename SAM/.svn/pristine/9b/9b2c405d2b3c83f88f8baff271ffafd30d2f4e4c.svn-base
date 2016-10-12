@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="ImmediateFlush" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="file" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/mnt/logsweb/sam_test.log" />
+		<!-- 
+		<param name="File" value="/mnt/logsweb/gap_web_test.log" />
+		<param name="File" value="/mnt/logsweb/gap_web_pro.log" />  -->
+		<param name="MaxBackupIndex" value="10" />
+		<param name="MaxFileSize" value="10MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %p %c - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="gt.edu.altamira." additivity="true">
+		<level value="DEBUG" />
+		<appender-ref ref="console" />
+		<appender-ref ref="file" />
+	</logger>
+	<logger name="org.ajax4jsf" additivity="true">
+		<level value="ERROR" />
+		<appender-ref ref="console" />
+		
+	</logger>
+	
+	<logger name="org.apache.commons" additivity="true">
+		<level value="ERROR" />
+		<appender-ref ref="console" />
+		<appender-ref ref="file" />
+		
+	</logger>
+	<root>
+		<level value="debug"></level>
+		<appender-ref ref="console"/>
+	</root>
+	
+
+</log4j:configuration>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="SAMSchema">
+		
+		<jta-data-source>jdbc/connSAM</jta-data-source>
+		<class>gt.edu.altamira.sam.entity.sec.AppEvent</class>
+		<class>gt.edu.altamira.sam.entity.sec.AppEventLog</class>
+		<class>gt.edu.altamira.sam.entity.sec.DocumentType</class>
+		<class>gt.edu.altamira.sam.entity.sec.DocumentUser</class>
+		<class>gt.edu.altamira.sam.entity.sec.Option</class>
+		<class>gt.edu.altamira.sam.entity.sec.OptionRole</class>
+		<class>gt.edu.altamira.sam.entity.sec.OptionRolePK</class>
+		<class>gt.edu.altamira.sam.entity.sec.OptionUser</class>
+		<class>gt.edu.altamira.sam.entity.sec.OptionUserPK</class>
+		<class>gt.edu.altamira.sam.entity.sec.Parameter</class>
+		<class>gt.edu.altamira.sam.entity.sec.ParameterDet</class>
+		<class>gt.edu.altamira.sam.entity.sec.Report</class>
+		<class>gt.edu.altamira.sam.entity.sec.ReportParam</class>
+		<class>gt.edu.altamira.sam.entity.sec.Role</class>
+		<class>gt.edu.altamira.sam.entity.sec.Status</class>
+		<class>gt.edu.altamira.sam.entity.sec.StatusType</class>
+		<class>gt.edu.altamira.sam.entity.sec.User</class>
+		<class>gt.edu.altamira.sam.entity.sec.UserLogin</class>
+		<class>gt.edu.altamira.sam.entity.sec.UserRole</class>
+		<class>gt.edu.altamira.sam.entity.sec.UserRolePK</class>
+		<class>gt.edu.altamira.sam.entity.sec.UserStatus</class>
+		<class>gt.edu.altamira.sam.entity.sec.UserType</class>
+		
+		<shared-cache-mode>NONE</shared-cache-mode>
+	</persistence-unit>
+</persistence>

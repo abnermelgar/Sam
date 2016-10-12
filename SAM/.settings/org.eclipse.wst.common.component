@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SAM">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="SAMWeb.war" deploy-path="/" handle="module:/resource/SAMWeb/SAMWeb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SAMCore.jar" deploy-path="/" handle="module:/resource/SAMCore/SAMCore">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SAMCoreClient.jar" deploy-path="/" handle="module:/resource/SAMCoreClient/SAMCoreClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-databind-2.1.4.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/jackson-databind-2.1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-core-2.1.4.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/jackson-core-2.1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-annotations-2.1.4.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/jackson-annotations-2.1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SAMSchema.jar" deploy-path="/lib" handle="module:/resource/SAMSchema/SAMSchema">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.17.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/log4j-1.2.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="uadetector-resources-2014.10.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/uadetector-resources-2014.10.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="uadetector-core-0.9.22.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/uadetector-core-0.9.22.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.2.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/commons-logging-1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="uadetector-json-0.1.22.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/uadetector-json-0.1.22.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-codec-1.9.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/commons-codec-1.9.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-validator-1.5.0.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/commons-validator-1.5.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpclient-cache-4.5.1.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/httpclient-cache-4.5.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jna-4.1.0.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/jna-4.1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpclient-win-4.5.1.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/httpclient-win-4.5.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-io-2.4.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/commons-io-2.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="fluent-hc-4.5.1.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/fluent-hc-4.5.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpmime-4.5.1.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/httpmime-4.5.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpcore-4.4.3.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/httpcore-4.4.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="httpclient-4.5.1.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/httpclient-4.5.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jna-platform-4.1.0.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/jna-platform-4.1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-dbutils-1.6.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/commons-dbutils-1.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.7.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/slf4j-api-1.7.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="quality-check-1.3.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/quality-check-1.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="findbugs.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/findbugs.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-lang-2.6.jar" deploy-path="/lib" handle="module:/classpath/lib/SAM/EarContent/APP-INF/lib/commons-lang-2.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

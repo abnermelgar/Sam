@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+	<div class="ibox float-e-margins">
+		<div class="ibox-title">
+			<h5>Listado de Roles</h5>
+			<div class="ibox-tools">
+				<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+				</a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+					class="fa fa-wrench"></i>
+				</a>
+
+			</div>
+		</div>
+		<div class="ibox-content">
+			<rich:messages />
+
+			<div class="table-responsive">
+
+				<h:dataTable id="dtRoles"
+					styleClass="table table-striped table-bordered table-hover tableTools"
+					width="100%" value="#{roleBean.list}" var="x">
+
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						<h:outputText value="#{x.id}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						<h:outputText value="#{x.desRole}" />
+					</h:column>
+					<h:column>
+						<a4j:commandButton styleClass="btn btn-primary" value="Editar"
+							execute="@form" limitRender="true" immediate="true"
+							bypassUpdates="true" type="button" render="tooglePanel"
+							oncomplete="pageSetUp()">
+							<a4j:param assignTo="#{roleBean.wizardURL}"
+								value="form:tooglePanelI2" />
+							<a4j:param assignTo="#{roleBean.id}" value="#{x.id}" />
+						</a4j:commandButton>
+					</h:column>
+
+
+				</h:dataTable>
+
+
+			</div>
+
+			<h:panelGroup styleClass="form-horizontal">
+
+				<div class="hr-line-dashed"></div>
+				<div class="form-group">
+					<div class="col-sm-4 col-sm-offset-2">
+						<a4j:commandButton styleClass="btn btn-primary" value="Nuevo"
+							action="#{roleBean.addNew}" execute="@form" limitRender="true"
+							immediate="true" bypassUpdates="true" type="button"
+							render="tooglePanel" oncomplete="pageSetUp();">
+							<a4j:param assignTo="#{roleBean.wizardURL}"
+								value="form:tooglePanelI2" />
+						</a4j:commandButton>
+
+					</div>
+
+				</div>
+			</h:panelGroup>
+		</div>
+
+	</div>
+
+
+
+</ui:composition>

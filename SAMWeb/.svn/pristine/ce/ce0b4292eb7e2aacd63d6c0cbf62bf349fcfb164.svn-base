@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<h:panelGroup id="formEdit">
+
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>Usuario #{userBean.newEntity ?'Nuevo':'Editando'}</h5>
+				<div class="ibox-tools">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+					</a> <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-wrench"></i>
+					</a>
+
+				</div>
+			</div>
+			<div class="ibox-content">
+
+
+				<rich:messages />
+				<h:panelGroup styleClass="form-horizontal">
+
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Alias</label>
+
+						<div class="col-sm-10">
+							<h:inputText value="#{userBean.entity.userAlias}"
+								styleClass="form-control" />
+
+						</div>
+					</div>
+
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Nombres</label>
+
+						<div class="col-sm-10">
+							<h:inputText value="#{userBean.entity.userNames}"
+								styleClass="form-control" />
+
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Apellidos</label>
+
+						<div class="col-sm-10">
+							<h:inputText value="#{userBean.entity.lastNames}"
+								styleClass="form-control" />
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">E-mail</label>
+
+						<div class="col-sm-10">
+							<h:inputText value="#{userBean.entity.email}"
+								styleClass="form-control">
+								<f:passThroughAttribute name="type" value="email" />
+							</h:inputText>
+
+						</div>
+					</div>
+
+					<h:panelGroup rendered="#{userBean.newEntity}">
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Password</label>
+
+							<div class="col-sm-10">
+								<h:inputSecret value="#{userBean.entity.password}"
+									styleClass="form-control" />
+
+							</div>
+						</div>
+
+					</h:panelGroup>
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Estado</label>
+						<div class="col-sm-10">
+							<h:selectOneMenu value="#{userBean.selectedStatus}"
+								styleClass="form-control col-md-7 col-xs-12" style="width:100%">
+								<f:selectItem itemLabel="Alta" itemValue="1" />
+								<f:selectItem itemLabel="Baja" itemValue="2" />
+							</h:selectOneMenu>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Tipo</label>
+						<div class="col-sm-10">
+							<h:selectOneMenu value="#{userBean.selectedType}"
+								styleClass="form-control col-md-7 col-xs-12" style="width:100%">
+								<f:selectItem itemLabel="Seleccione.." itemValue="" />
+								<f:selectItems value="#{userBean.userTypes}" />
+							</h:selectOneMenu>
+						</div>
+					</div>
+
+					<h:panelGroup id="userRolTable" rendered="#{!userBean.newEntity}">
+						<h:panelGroup id="listUserRol">
+
+
+							<h3>Roles Asignados</h3>
+
+							<div class="form-group">
+
+								<label class="col-sm-2 control-label">Roles</label>
+								<div class="col-sm-10">
+									<h:selectOneMenu value="#{userBean.selectedRole}"
+										styleClass="form-control col-md-7 col-xs-12"
+										style="width:100%">
+
+										<f:selectItems value="#{userBean.roles}" />
+									</h:selectOneMenu>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+									<a4j:commandLink styleClass="btn btn-primary"
+										action="#{userBean.addRole}" render="listUserRol"
+										oncomplete="pageSetUp();">
+										<i class="fa fa-plus bigger-110"></i> Agregar
+
+										</a4j:commandLink>
+								</div>
+							</div>
+							<h:panelGroup rendered="#{!empty userBean.entity.userRoles}">
+
+								<h:dataTable value="#{userBean.entity.userRoles}" var="x"
+									id="dt2"
+									styleClass="table table-striped table-bordered dt-responsive jambo_table bulk_action nowrap tableTools"
+									width="100%">
+									<h:column>
+										<f:facet name="header">ID</f:facet>
+
+										<h:outputText value="#{x.id.idRole}" />
+
+									</h:column>
+									<h:column>
+										<f:facet name="header">Rol</f:facet>
+										<h:outputText value="#{x.role.desRole}" />
+
+									</h:column>
+									<h:column>
+										<a4j:commandLink action="#{userBean.removeRole}"
+											styleClass="btn btn-danger btn-sm no-radius"
+											ajaxSingle="true" render="userRolTable"
+											oncomplete="pageSetUp();">
+											<i class="fa fa-trash-o bigger-150"></i>
+
+											<f:setPropertyActionListener target="#{userBean.rolePk}"
+												value="#{x.id}" />
+										</a4j:commandLink>
+									</h:column>
+								</h:dataTable>
+							</h:panelGroup>
+						</h:panelGroup>
+					</h:panelGroup>
+
+
+
+
+
+					<div class="hr-line-dashed"></div>
+					<div class="form-group">
+						<div class="col-sm-4 col-sm-offset-2">
+
+
+							<a4j:commandButton styleClass="btn btn-white" value="Regresar"
+								execute="formEdit" limitRender="true" immediate="true"
+								bypassUpdates="true" type="button" render="tooglePanel"
+								oncomplete="pageSetUp();callDatableTools();">
+								<a4j:param assignTo="#{userBean.wizardURL}"
+									value="form:tooglePanelI1" />
+							</a4j:commandButton>
+
+							<label></label>
+							<a4j:commandButton action="#{userBean.save}"
+								styleClass="btn btn-primary" value="Guardar" execute="formEdit"
+								render="tooglePanel"
+								oncomplete="pageSetUp();callDatableTools();">
+
+							</a4j:commandButton>
+
+
+
+						</div>
+					</div>
+				</h:panelGroup>
+
+
+			</div>
+		</div>
+	</h:panelGroup>
+
+</ui:composition>

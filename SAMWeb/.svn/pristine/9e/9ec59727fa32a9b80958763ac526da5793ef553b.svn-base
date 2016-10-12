@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="Cache-Control"
+		content="no-cache, must-revalidate, no-store" />
+
+	<title>Altamira | Login</title>
+
+	<link href="#{request.contextPath}/css/bootstrap.min.css"
+		rel="stylesheet" />
+	<link href="#{request.contextPath}/font-awesome/css/font-awesome.css"
+		rel="stylesheet" />
+
+	<link href="#{request.contextPath}/css/animate.css" rel="stylesheet" />
+	<link href="#{request.contextPath}/css/style.css" rel="stylesheet" />
+
+	<!-- #FAVICONS -->
+	<link rel="shortcut icon" href="#{request.contextPath}/img/favicon.png"
+		type="image/x-icon" />
+	<link rel="icon" href="#{request.contextPath}/img/favicon.png"
+		type="image/x-icon" />
+
+</h:head>
+
+<h:body class="gray-bg">
+
+	<div class="loginColumns animated fadeInDown">
+		<div class="row">
+
+			<div class="col-md-6">
+				<h2 class="font-bold">Welcome to IN+</h2>
+
+				<p>Perfectly designed and precisely prepared admin theme with
+					over 50 pages with extra new web app views.</p>
+
+				<p>Lorem Ipsum is simply dummy text of the printing and
+					typesetting industry. Lorem Ipsum has been the industry's standard
+					dummy text ever since the 1500s.</p>
+
+				<p>When an unknown printer took a galley of type and scrambled
+					it to make a type specimen book.</p>
+
+				<p>
+					<small>It has survived not only five centuries, but also
+						the leap into electronic typesetting, remaining essentially
+						unchanged.</small>
+				</p>
+
+			</div>
+			<div class="col-md-6">
+				<div class="ibox-content">
+					<h:form class="m-t" role="form" id="login-form">
+						<div class="form-group">
+							<h:inputText value="#{loginBean.logUser}" id="user"
+								styleClass="form-control" required="true">
+
+								<f:passThroughAttribute name="type" value="email" />
+								<f:passThroughAttribute name="placeholder" value="Usuario" />
+							</h:inputText>
+
+							<rich:message styleClass="label-danger" style="display:inline;"
+								for="user" />
+						</div>
+						<div class="form-group">
+							<h:inputSecret value="#{loginBean.logPassword}"
+								styleClass="form-control" required="true" id="password">
+
+								<f:passThroughAttribute name="type" value="password" />
+								<f:passThroughAttribute name="placeholder" value="Password" />
+							</h:inputSecret>
+
+							<rich:message styleClass="label-danger" style="display:inline;"
+								for="password" />
+
+						</div>
+
+						<a4j:commandButton
+							styleClass="btn btn-primary block full-width m-b"
+							action="#{loginBean.login}" type="submit" />
+
+						<rich:messages styleClass="alert-danger" style="display:inline;"
+							globalOnly="true" />
+
+						<h:panelGroup rendered="false">
+
+							<a href="#"> <small>Forgot password?</small>
+							</a>
+
+							<p class="text-muted text-center">
+								<small>Do not have an account?</small>
+							</p>
+							<a class="btn btn-sm btn-white btn-block" href="register.html">Create
+								an account</a>
+						</h:panelGroup>
+					</h:form>
+					<p class="m-t">
+						<small>Inspinia we app framework base on Bootstrap 3
+							 2014</small>
+					</p>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<div class="row">
+			<div class="col-md-6">Copyright Example Company</div>
+			<div class="col-md-6 text-right">
+				<small>© 2014-2015</small>
+			</div>
+		</div>
+	</div>
+
+	<script src="#{request.contextPath}/js/jquery-2.1.1.js"></script>
+	<!-- Jquery Validate -->
+	<script
+		src="#{request.contextPath}/js/plugins/validate/jquery.validate.min.js"></script>
+
+	<script type="text/javascript">
+			
+
+			$(function() {
+				// Validation
+				$("#login-form").validate({
+					// Rules for form validation
+					rules : {
+						user : {
+							required : true,
+						},
+						password : {
+							required : true,
+							minlength : 3,
+							maxlength : 20
+						}
+					},
+
+					// Messages for form validation
+					messages : {
+						user : {
+							required : 'Por favor ingresa tu correo.',
+							
+						},
+						password : {
+							required : 'Por favor ingresa tu contraseña'
+						}
+					},
+
+					// Do not change code below
+					errorPlacement : function(error, element) {
+						error.insertAfter(element.parent());
+					}
+				});
+			});
+
+			
+			
+		</script>
+
+</h:body>
+
+</html>

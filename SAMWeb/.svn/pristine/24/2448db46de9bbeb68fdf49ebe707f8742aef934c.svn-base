@@ -1,0 +1,4 @@
+SPECIAL_PATHS=/css,/a4j,/js,/Scripts,/images,/tmp,/DescargarFile,/imagenes,/sound,/fonts,/xml,/img,/rfRes,/javax.faces.resource,/CheckSession,/rfRes,/org.richfaces.resources,/supplierImages,/userImages,/userSignImages,/jaxrs,/font-awesome,/fonts,/LESS,/locales
+LOGIN_PAGE=/login.jsf
+WELCOME_PAGE=/index.jsf
+PAGES_WITHOUT_LOGIN=/login.jsf,/xjsfCaptcha.jsf,/jcaptcha.jpg,/register.jsf,/register2.jsf,/forgotpassword.jsf,/favicon.ico
