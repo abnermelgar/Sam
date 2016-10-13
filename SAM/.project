@@ -3,10 +3,10 @@
 	<name>SAM</name>
 	<comment></comment>
 	<projects>
-		<project>SAMWeb</project>
 		<project>SAMCore</project>
 		<project>SAMCoreClient</project>
 		<project>SAMSchema</project>
+		<project>SAMWeb</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
